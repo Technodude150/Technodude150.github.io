@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<style>
+		#button {
+			font-size: 30px;
+		}
+	</style>
+</head>
 <body>
  
-<button onclick="getLocation()">Your coordinates are:</button>
+<button id="button" onclick="getLocation()">Your coordinates are:</button>
  
 <p id="Test"></p>
  
@@ -14,7 +21,8 @@ function getLocation() {
     if (navigator.geolocation) {
       //If supported, run the getCurrentPosition() method
       //If the getCurrentPosition() method is successful, it returns a coordinates object to the function specified in the parameter (showPosition)
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        //First method to run is ShowPosition, if it isn't successful, then showError is ran
+		navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else { 
       //If not, display a message to the user
         x.innerHTML = "Geolocation is not supported by this browser.";
